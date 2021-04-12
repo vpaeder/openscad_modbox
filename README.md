@@ -5,6 +5,9 @@ I started doing this as I wanted to build a small and inexpensive live stream co
 
 This is how it may look (generated with example file *box_modular.scad*, rendered with Blender):
 ![Two detachable boxes](https://user-images.githubusercontent.com/6388158/114411010-7d16d900-9bb4-11eb-8157-d9c07bd41a52.png)
+The same, but moving:
+- [front view](https://github.com/vpaeder/openscad_modbox/blob/master/examples/box_modular_front.mp4)
+- [rear view](https://github.com/vpaeder/openscad_modbox/blob/master/examples/box_modular_back.mp4)
 
 
 # Files
