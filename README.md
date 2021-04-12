@@ -1,7 +1,7 @@
 # openscad_modbox: a modular box design with OpenSCAD
 This is a set of OpenSCAD modules and functions to generate boxes that can be attached to each other with snap-fit connectors.
 
-I started doing this as I wanted to build a small and inexpensive live stream controller as a fun project, and then my imagination went wild. I thought of something which, unlike some IoT-oriented projects around (see M5Stack or Seeed Wio Terminal for instance), extends sideways and would eventually form a row of chain-linked components (touch screen, potentiometers, sliders, ...). This repository contains the OpenSCAD files that I wrote to generate boxes and box stands.
+I started doing this as I wanted to build a small and inexpensive live stream controller as a fun project, and then my imagination went wild. I thought of something which, unlike some IoT-oriented projects around (see M5Stack or Seeed Wio Terminal for instance), extends sideways and would eventually form a row of chain-linked components (touch screen, potentiometers, sliders, ...). This repository contains the OpenSCAD files that I wrote to generate boxes and box stands for this purpose.
 
 This is how it may look (generated with example file *box_modular.scad*, rendered with Blender):
 ![Two detachable boxes](https://user-images.githubusercontent.com/6388158/114411010-7d16d900-9bb4-11eb-8157-d9c07bd41a52.png)
