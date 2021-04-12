@@ -3,6 +3,10 @@ This is a set of OpenSCAD modules and functions to generate boxes that can be at
 
 I started doing this as I wanted to build a small and inexpensive live stream controller as a fun project, and then my imagination went wild. I thought of something which, unlike some IoT-oriented projects around (see M5Stack or Seeed Wio Terminal for instance), extends sideways and would eventually form a row of chain-linked components (touch screen, potentiometers, sliders, ...). This repository contains the OpenSCAD files that I wrote to generate boxes and box stands.
 
+This is how it may look (generated with example file *box_modular.scad*):
+![Two detachable boxes](https://user-images.githubusercontent.com/6388158/114411010-7d16d900-9bb4-11eb-8157-d9c07bd41a52.png)
+
+
 # Files
 You'll find the OpenSCAD files in [modbox folder](https://github.com/vpaeder/openscad_modbox/tree/master/modbox). I've split the project in *low-level* (toolbox.scad) and *high-level* (box_parts.scad) functions and modules. Both are needed to generate complete boxes.
 
