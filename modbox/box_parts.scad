@@ -155,6 +155,29 @@ module screw_mount(height, mount_radius, hole_radius, bevel_radius, bevel_resolu
 }
 
 
+// Module:  square_screw_mount()
+// Usage:
+//   square_screw_mount(height, mount_width, hole_radius, hole_displacement_x, hole_displacement_y, bevel_radius, bevel_resolution)
+// Description:
+//    Generates a square mount with a hole through, possibly displaced from square centre.
+//    height = mount height
+//    mount_width = mount width
+//    hole_radius = central hole radius
+//    hole_displacement_x = displacement of screw hole wrt mount center
+//    hole_displacement_y = displacement of screw hole wrt mount center
+//    bevel_radius = beveling radius
+//    bevel_resolution = beveling resolution (number of segments per 360 degrees, 0 = automatic)
+module square_screw_mount(height, mount_width, hole_radius, hole_displacement_x, hole_displacement_y, bevel_radius, bevel_resolution) {
+    // stand with hole
+    translate([0, 0, height/2]) difference() {
+        // stand
+        translate([-mount_width/2 + hole_displacement_x, -mount_width/2 + hole_displacement_y, -height/2]) extruded_rounded_rectangle([mount_width, mount_width, height], bevel_radius, bevel_resolution);
+        // hole
+        cylinder(h=height + 0.02, r = hole_radius, center=true);
+    }
+}
+
+
 // Module:  screw_standoff()
 // Usage:
 //   screw_standoff(height, standoff_radius, hole_radius, bevel_radius, bevel_resolution);
@@ -276,7 +299,7 @@ module case_top(length, width, height, wall_thickness, bevel_resolution, connect
         
         if (!is_undef(screws))
             for (screw = screws)
-                translate([screw[3].x, screw[3].y, height - wall_thickness - screw[2]]) screw_mount(screw[2], screw[1], screw[0], wall_thickness, bevel_resolution);
+                translate([screw[3].x, screw[3].y, height - wall_thickness - screw[2]]) square_screw_mount(screw[2], screw[1]*2 + wall_thickness, screw[0], -screw[3][2], -screw[3][3], wall_thickness, bevel_resolution);
         
         difference() {
             /** case boundaries **/
