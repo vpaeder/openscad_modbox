@@ -14,11 +14,11 @@ use <box_parts.scad>;
 /*** rendering options ***/
 /*************************/
 render_main_box = true; // if true, renders elements for main box
-render_extension_box = false; // if true, renders elements for extension box
+render_extension_box = true; // if true, renders elements for extension box
 
-render_top = false; // if true, renders box top
+render_top = true; // if true, renders box top
 render_bottom = false; // if true, renders box bottom cover
-render_support = true; // if true, renders box support
+render_support = false; // if true, renders box support
 hollowing_out = false; // if true, hollows out surfaces (see hollowing out settings below)
 
 // minimum feature size
@@ -37,9 +37,9 @@ box_height = 19.5;
 /** main box: screws **/
 screw_distance = 5; // screw distance from edge (shortest distance)
 screw_radius = 1.5; // screw radius (=> M3)
-screw_hole_radius = screw_radius - 0.35; // hole in screw mount
-screw_head_radius = 2.8; // radius of screw head (standard is d=5.3mm for M3 => added 0.3mm leeway)
-screw_positions = [ [screw_distance, screw_distance], [box_length - screw_distance, screw_distance], [screw_distance, box_width - screw_distance], [box_length - screw_distance, box_width - screw_distance]];
+screw_hole_radius = screw_radius - 0.25; // hole in screw mount
+screw_head_radius = 2.9; // radius of screw head (standard is d=5.3mm for M3 => added 0.5mm leeway)
+screw_positions = [ [screw_distance, screw_distance, 3/2*wall_thickness, 3/2*wall_thickness], [box_length - screw_distance, screw_distance, -3/2*wall_thickness, 3/2*wall_thickness], [screw_distance, box_width - screw_distance, 3/2*wall_thickness, -3/2*wall_thickness], [box_length - screw_distance, box_width - screw_distance, -3/2*wall_thickness, -3/2*wall_thickness]];
 
 /** main box: leg clips (placed on bottom cover) **/
 clip_length = 5; // along long dimension
@@ -285,7 +285,7 @@ if (render_extension_box) {
                 [snap_joint_shaft_radius, snap_joint_hub_radius, snap_joint_length, [[snap_joint_distance_y1, snap_joint_distance_z], [snap_joint_distance_y2, box_height-snap_joint_distance_z], [box_width-snap_joint_distance_y1, snap_joint_distance_z], [box_width-snap_joint_distance_y2, box_height-snap_joint_distance_z] ]],
                 
                 // screws
-                [[screw_hole_radius, screw_head_radius, stand_height, [extension_length/2, screw_distance]], [screw_hole_radius, screw_head_radius, stand_height, [extension_length/2, extension_width-screw_distance]]],
+                [[screw_hole_radius, screw_head_radius, stand_height, [extension_length/2, screw_distance, 0, wall_thickness*3/2]], [screw_hole_radius, screw_head_radius, stand_height, [extension_length/2, extension_width-screw_distance, 0, -wall_thickness*3/2]]],
                 
                 // hollowing out
                 hollowing_out_parameters
